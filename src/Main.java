@@ -7,5 +7,9 @@ public class Main {
         plant1.displayInfo();
         plant2.displayInfo();
         plant3.displayInfo();
+
+        plant1.displayInfo();
+        plant1.waterPlant(0.1);
+        plant1.displayInfo();
     }
 }

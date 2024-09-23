@@ -21,5 +21,22 @@ public class Plant {
         System.out.println("Plant WaterNeeds: " + waterNeeds + " liters/day");
         System.out.println("Plant TemperatureTolerance: " + temperatureTolerance + "°C");
     }
+    public void waterPlant(double waterAmount) {
+        double waterNeedsInLiters;
+        try {
+            waterNeedsInLiters = Double.parseDouble(waterNeeds);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid format for water needs. Unable to water the plant.");
+            return;
+        }
 
+        if (waterAmount >= waterNeedsInLiters) {
+            System.out.println(name + " has been watered sufficiently!");
+            waterNeedsInLiters = 0;
+        } else {
+            waterNeedsInLiters -= waterAmount;
+            System.out.println(name + " still needs " + waterNeedsInLiters + " liters of water.");
+        }
+        waterNeeds = String.valueOf(waterNeedsInLiters);
+    }
 }
